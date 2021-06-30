@@ -21,7 +21,7 @@ pip install -r requirements.txt
 Command line arguments
 ```bash
 -p, or --prototxt, => path to Caffe 'deploy' prototxt file. It is required.
--m, or --model, => path to Caffe 'pre-trained model. It is required.
+-m, or --model, => path to Caffe 'pre-trained model'. It is required.
 -i, or --input, => path to optional input video file. Leave it to use camera feed.
 -o, or --output, => path to output video file. It is optional.
 -c, or --confidence, => type =float, default = 0.4, probability threshold for detections.
