@@ -1,12 +1,16 @@
 # People Tracker and Counter
-The is a computer vision application that counts people entering and exiting an establishment. 
+
+The is a computer vision application that counts people entering and exiting an establishment.
 
 ## Language and Libraries
+
 - Python 3.8
 - OpenCV
 
 ## Installation
+
 Clone the repository and open it in an editor.
+
 ```bash
 git clone https://github.com/Rquaicoo/People-tracker-and-counter.git
 ```
@@ -18,7 +22,9 @@ pip install -r requirements.txt
 ```
 
 ## Running the Demo
+
 Command line arguments
+
 ```bash
 -p, or --prototxt, => path to Caffe 'deploy' prototxt file. It is required.
 -m, or --model, => path to Caffe 'pre-trained model'. It is required.
@@ -35,10 +41,16 @@ python counter.py --prototxt ./mobilenet_ssd/MobileNetSSD_deploy.prototxt \
 ```
 
 Using camera.
+
 ```bash
 python counter.py --prototxt ./mobilenet_ssd/MobileNetSSD_deploy.prototxt \
 	--model ./mobilenet_ssd/MobileNetSSD_deploy.caffemodel
 ```
 
 ### Results
+
 The results from the execution is saved in ./results.csv in the format: (timestamp, totalUp, totalDown) whenever the count changes.
+
+### Documentation of the project
+
+https://github.com/Rquaicoo/People-tracker-and-counter/blob/2dbab2468607b6dac71e6da28d0675afede3902d/documentation/TEAM%20ANGRY%20NERDS.docx
