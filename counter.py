@@ -3,12 +3,14 @@ from pyimagesearch.trackableobject import TrackableObject
 from numpy.lib.utils import info
 from imutils.video import VideoStream
 from imutils.video import FPS
+from datetime import timedelta
 import imutils
 import numpy as np
 import argparse
 import time
 import dlib
 import cv2
+import datetime
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-p", "--prototxt", required=True, help ="path to Caffe 'deploy' prototxt file")
@@ -57,6 +59,9 @@ totalUp = 0
 
 #frames per second throughput estimator for benchmarking
 fps = FPS().start()
+
+# Keeps track of already written data (to prevent dublicate entries)
+written_values = []
 
 while True:
     #grab the next frame and handle
@@ -178,6 +183,14 @@ while True:
         ("down", totalDown),
         ("status", status),
     ]
+
+    # Writing the output to a csv file
+    if status.lower() != 'waiting' and written_values != [totalUp, totalDown]:
+        written_values = [totalUp, totalDown]
+        timestamp = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        with open("./results.csv", "a") as file:
+            result = f"{timestamp},{totalUp},{totalDown}\n"
+            file.write(str(result))
 
     #drawing our frame
     for (i, (k,v)) in enumerate(info):

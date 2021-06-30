@@ -12,7 +12,7 @@ git clone https://github.com/Rquaicoo/People-tracker-and-counter.git
 ```
 
 ```bash
-cd People-tracker-and-counter
+cd ./People-tracker-and-counter
 pip install -r requirements.txt
 
 ```
@@ -39,3 +39,6 @@ Using camera.
 python counter.py --prototxt ./mobilenet_ssd/MobileNetSSD_deploy.prototxt \
 	--model ./mobilenet_ssd/MobileNetSSD_deploy.caffemodel
 ```
+
+### Results
+The results from the execution is saved in ./results.csv whenever the count changes.
