@@ -1,10 +1,3 @@
-class TrackableObject:
-    def __init__(self, objectID, centroid):
-        self.objectID = objectID
-        self.centroids = [centroid]
-
-        self.counted = False #checks whether an object is counted
-
 from pyimagesearch.centroidtracker import CentroidTracker
 from pyimagesearch.trackableobject import TrackableObject
 from numpy.lib.utils import info
@@ -222,7 +215,3 @@ cv2.destroyAllWindows()
 #run this code in command line interface to view the model at work with a sample video
 #use the path without the input to initialize the webcam
 #python counter.py --prototxt mobilenet_ssd/MobileNetSSD_deploy.prototxt --model mobilenet_ssd/MobileNetSSD_deploy.caffemodel --input videos/example_01.mp4
-
-
-
-
