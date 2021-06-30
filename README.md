@@ -41,4 +41,4 @@ python counter.py --prototxt ./mobilenet_ssd/MobileNetSSD_deploy.prototxt \
 ```
 
 ### Results
-The results from the execution is saved in ./results.csv whenever the count changes.
+The results from the execution is saved in ./results.csv in the format: (timestamp, totalUp, totalDown) whenever the count changes.
