@@ -65,17 +65,19 @@
         </tbody>
       </table>
 
-      <br>
-      <br>
-      <br>
-      <br>
+      <br />
+      <br />
+      <br />
+      <br />
 
       <p><a href="" id="refresh-btn">Refresh</a></p>
     </div>
 
     <script>
+      var interval;
+
       function updateOutput() {
-        console.log("updated")
+        console.log("updated");
         fetch("/get-status")
           .then((response) => response.json())
           .then((json) => {
@@ -88,11 +90,14 @@
             document.getElementById("total").innerText = total;
             document.getElementById("refreshed").innerText = timestamp;
           })
-          .catch((err) => alert("Request Failed", err));
+          .catch((err) => {
+            clearInterval(interval);
+            alert("Request Failed", err);
+          });
       }
 
-      updateOutput()
-      setInterval(updateOutput, 2000)
+      updateOutput();
+      interval = setInterval(updateOutput, 2000);
     </script>
   </body>
 </html>

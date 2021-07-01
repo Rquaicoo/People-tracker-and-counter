@@ -63,6 +63,3 @@ python counter.py --prototxt ./mobilenet_ssd/MobileNetSSD_deploy.prototxt \
 
 The results from the execution is saved in ./results.csv in the format: (timestamp, totalUp, totalDown) whenever the count changes.
 
-### Documentation of the project
-
-https://github.com/Rquaicoo/People-tracker-and-counter/blob/2dbab2468607b6dac71e6da28d0675afede3902d/documentation/TEAM%20ANGRY%20NERDS.docx
