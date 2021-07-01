@@ -4,8 +4,9 @@ The is a computer vision application that counts people entering and exiting an 
 
 ## Language and Libraries
 
-- Python 3.8
+- Python 3.9
 - OpenCV
+- Flaks
 
 ## Installation
 
@@ -22,6 +23,17 @@ pip install -r requirements.txt
 ```
 
 ## Running the Demo
+
+### Running the Web Interface
+
+The web interface was developed in Flask. To run it,
+
+```bash
+cd ./web
+flask run
+```
+
+### Running the detector
 
 Command line arguments
 
