@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>People Counting | Statistics</title>
+    <style>
+      body {
+        background-color: rgb(32, 38, 45);
+        color: rgb(214, 214, 214);
+      }
+      h1,
+      p {
+        text-align: center;
+      }
+      table {
+        width: 40%;
+        margin: auto;
+        background: black;
+        padding: 2em;
+        border-radius: 1em;
+      }
+
+      table td {
+        text-align: center;
+      }
+
+      #refresh-btn {
+        background-color: rgb(0, 174, 255);
+        padding: 0.5em;
+        border-radius: 10%;
+        text-decoration: none;
+        color: inherit;
+        margin-top: 10em;
+      }
+
+      @media only screen and (max-width: 600px) {
+        table {
+          width: 95%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>People Counter</h1>
+    <h1>Counting Statistics</h1>
+
+    <div id="table-container">
+      <p>Last Refreshed: <span id="refreshed">! Server not running</span></p>
+      <table>
+        <thead>
+          <tr>
+            <th>Up</th>
+            <th>Down</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="up">0</td>
+            <td id="down">0</td>
+            <td id="total">0</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <p><a href="" id="refresh-btn">Refresh</a></p>
+    </div>
+
+    <script>
+      function updateOutput() {
+        console.log("updated")
+        fetch("/get-status")
+          .then((response) => response.json())
+          .then((json) => {
+            const up = json.up;
+            const down = json.down;
+            const total = json.total;
+            const timestamp = json.timestamp;
+            document.getElementById("up").innerText = up;
+            document.getElementById("down").innerText = down;
+            document.getElementById("total").innerText = total;
+            document.getElementById("refreshed").innerText = timestamp;
+          })
+          .catch((err) => alert("Request Failed", err));
+      }
+
+      updateOutput()
+      setInterval(updateOutput, 2000)
+    </script>
+  </body>
+</html>
