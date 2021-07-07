@@ -6,7 +6,7 @@ The is a computer vision application that counts people entering and exiting an 
 
 - Python 3.9
 - OpenCV
-- Flasks
+- Flask
 
 ## Installation
 
