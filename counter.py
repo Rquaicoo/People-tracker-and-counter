@@ -46,7 +46,7 @@ writer = None
 #frame dimensions
 W, H = None, None
 
-#instatiating a centroid tracker, a list and dictionary for storing each correlation
+#instantiating a centroid tracker, a list and dictionary for storing each correlation
 #and a dictionary to map each object ID to a unique object
 ct = CentroidTracker(maxDisappeared=40, maxDistance=50)
 trackers = []
@@ -60,7 +60,7 @@ totalUp = 0
 #frames per second throughput estimator for benchmarking
 fps = FPS().start()
 
-# Keeps track of already written data (to prevent dublicate entries)
+# Keeps track of already written data (to prevent duplicate entries)
 written_values = []
 
 while True:
@@ -78,7 +78,7 @@ while True:
     if W is None or H is None:
         (H, W) = frame.shape[:2]
 
-    #writer is intitialized if video is written to a disk
+    #writer is initialized if video is written to a disk
     if args["output"] is not None and writer is None:
         fourcc = cv2.VideoWriter_fourcc(*"MJPG")
 
@@ -114,7 +114,7 @@ while True:
                 box = detections[0, 0, i, 3:7] * np.array([W, H, W, H])
                 (startX, startY, endX, endY) = box.astype("int")
 
-                #constructing a rectangle from the biunding box
+                #constructing a rectangle from the bounding box
                 tracker = dlib.correlation_tracker()
                 rect = dlib.rectangle(startX, startY, endX, endY)
                 tracker.start_track(rgb, rect)
@@ -136,12 +136,12 @@ while True:
             endX = int(pos.right())
             endY = int(pos.bottom())
 
-            #adding the bounding box coordintes 
+            #adding the bounding box coordinates 
             rects.append((startX, startY, endX, endY))
-    #draawing the horizontal line        
+    #drawing the horizontal line        
     cv2.line(frame, (0, H // 2), (W, H //2), (0, 0, 255), 4)
 
-    #using the centroid tracker to update old centroid swith the newly computed ones
+    #using the centroid tracker to update old centroid with the newly computed ones
     objects = ct.update(rects)
 
     #looping over tracked objects
@@ -177,7 +177,7 @@ while True:
         cv2.putText(frame, text, (centroid[0] - 10, centroid[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
         cv2.circle(frame, (centroid[0], centroid[1]), 4, (0,255,0), -1)
 
-    #tulpe of info on the screen
+    #tuple of info on the screen
     info  = [
         ("up", totalUp),
         ("down", totalDown),
