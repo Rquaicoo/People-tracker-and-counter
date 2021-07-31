@@ -177,7 +177,7 @@ while True:
                 text = "ID {}".format(objectID)
             
                 cv2.putText(frame, text, (centroid[0] - 10, centroid[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-                cv2.rectangle(frame,(startY,startX),(endY + startY,endX + startX),(0,255,0),2)
+                cv2.rectangle(frame,(startY,startX),(endY,endX),(0,255,0),2)
                 cv2.circle(frame, (centroid[0], centroid[1]), 4, (0,255,0), -1)
 
             # tuple of info on the screen
