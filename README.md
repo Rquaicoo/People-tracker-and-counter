@@ -38,10 +38,6 @@ Command line arguments
 
 ```bash
 
-```
-
-```bash
-
 run counter.py and provide the video path to your video as input
 
 ```
