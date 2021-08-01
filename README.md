@@ -6,7 +6,6 @@ The is a computer vision application that counts people entering and exiting an 
 
 - Python 3.9
 - OpenCV
-- Flask
 
 ## Installation
 
@@ -42,16 +41,19 @@ Command line arguments
 ```
 
 ```bash
-run the code and input the video path
+
+run counter.py and provide the video path to your video as input
+
 ```
 
 Using camera.
 
 ```bash
-run the code and press "w"
+
+Uncomment line 16 in counter.py
+
 ```
 
 ### Results
 
-The results from the execution is saved in ./results.csv in the format: (timestamp, totalUp, totalDown) whenever the count changes.
-
+The results from the execution is saved in ./log.txt in the format: (ID, whether entered or exited, timestamp) whenever the count changes.
