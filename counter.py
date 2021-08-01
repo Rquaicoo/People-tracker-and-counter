@@ -86,7 +86,7 @@ while cap.isOpened():
         # Opening (erode-> dilate) to remove noise.
         mask = cv.morphologyEx(imBin, cv.MORPH_OPEN, kernelOp)
         mask2 = cv.morphologyEx(imBin2, cv.MORPH_OPEN, kernelOp)
-        # Closing (dilate -> erode) para juntar regiones blancas.
+        # Closing (dilate -> erode) 
         mask = cv.morphologyEx(mask, cv.MORPH_CLOSE, kernelCl)
         mask2 = cv.morphologyEx(mask2, cv.MORPH_CLOSE, kernelCl)
     except:
